@@ -1,0 +1,34 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+//
+// NOTE (build fix): The original file applied the `detekt` (1.0.0.RC6-3) and `sonarqube`
+// plugins and resolved dependencies from `jcenter()`. JCenter/Bintray was shut down in 2021,
+// and detekt 1.0.0.RC6-3 was only published there, so the buildscript classpath no longer
+// resolves. Those plugins are code-quality tooling and are not required to build the app or
+// run the tests (sonarqube also targets an unreachable internal server). They are removed here
+// and `jcenter()` is replaced with `mavenCentral()`. The original is kept as build.gradle.original.
+
+buildscript {
+    ext.kotlin_version = '1.3.72'
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

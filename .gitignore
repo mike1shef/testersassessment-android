@@ -1,0 +1,22 @@
+# Gradle / build output
+.gradle/
+build/
+app/build/
+
+# Android Studio / IntelliJ IDEA
+.idea/
+*.iml
+captures/
+
+# Machine-specific SDK path (each dev sets their own)
+local.properties
+
+# macOS
+.DS_Store
+
+# Keystores / signing (safety – never commit secrets)
+*.jks
+*.keystore
+
+# Logs
+*.log
